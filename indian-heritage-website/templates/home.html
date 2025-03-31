@@ -1,0 +1,351 @@
+<!-- Home Page Template -->
+<div class="home-page">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content" animate-on-scroll>
+                <h1 class="hero-title">Discover India's Rich Cultural Heritage</h1>
+                <p class="hero-subtitle">Explore the ancient traditions, vibrant arts, and diverse cultural practices that make India unique</p>
+                <a href="#/gallery" class="hero-btn">Explore the Gallery</a>
+                <a href="#/cultural-map" class="hero-btn ml-3">Explore Cultural Map</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cultural Highlights Section -->
+    <section class="feature-section" cultural-pattern="background">
+        <div class="container">
+            <h2 class="section-title" animate-on-scroll>Cultural Highlights</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-3" ng-repeat="highlight in culturalHighlights" animate-on-scroll>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="{{highlight.icon}}"></i>
+                        </div>
+                        <h3 class="feature-title">{{highlight.title}}</h3>
+                        <p class="feature-description">{{highlight.description}}</p>
+                        <a href="{{highlight.link}}" class="btn btn-sm btn-outline-primary mt-3">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Traditions Section -->
+    <section class="traditions-section" animate-on-scroll>
+        <div class="container">
+            <h2 class="section-title">Featured Traditions</h2>
+            <p class="text-center mb-5">Explore some of India's most iconic cultural traditions and practices</p>
+            
+            <div class="row">
+                <div class="col-md-12" ng-repeat="tradition in featuredTraditions" animate-on-scroll>
+                    <div class="tradition-card mb-5">
+                        <div class="tradition-image">
+                            <img class="tradition-img" ng-src="{{tradition.image}}" alt="{{tradition.title}}">
+                        </div>
+                        <div class="tradition-content">
+                            <h3 class="tradition-title">{{tradition.title}}</h3>
+                            <p class="tradition-region">{{tradition.location}}</p>
+                            <p class="tradition-description">{{tradition.description}}</p>
+                            <a href="#/traditions?category={{tradition.category}}" class="read-more">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#/traditions" class="btn btn-lg btn-primary">View All Traditions</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Upcoming Events Section -->
+    <section class="events-section" cultural-pattern="background">
+        <div class="container">
+            <h2 class="section-title" animate-on-scroll>Upcoming Cultural Events</h2>
+            <p class="text-center mb-5">Immerse yourself in vibrant celebrations of India's living traditions</p>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-4" ng-repeat="event in upcomingEvents" animate-on-scroll>
+                    <div class="event-card">
+                        <div class="event-card-header">
+                            <img class="event-card-image" ng-src="{{event.image}}" alt="{{event.title}}">
+                            <div class="event-date">{{formatDate(event.date)}}</div>
+                        </div>
+                        <div class="event-card-body">
+                            <h3 class="event-title">{{event.title}}</h3>
+                            <p class="event-location"><i class="fas fa-map-marker-alt mr-2"></i>{{event.location}}</p>
+                            <p class="event-description">{{event.description}}</p>
+                            <a href="#/events" class="event-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#/events" class="btn btn-lg btn-primary">View All Events</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Interactive Map Preview -->
+    <section class="map-preview-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" animate-on-scroll>
+                    <h2 class="section-title text-left">Explore India's Cultural Regions</h2>
+                    <p class="mb-4">India's diverse geography has given rise to unique cultural traditions across different regions. Our interactive cultural map lets you explore the rich heritage of each state and region.</p>
+                    <ul class="region-highlights">
+                        <li><i class="fas fa-star text-warning mr-2"></i> Discover regional festivals and celebrations</li>
+                        <li><i class="fas fa-star text-warning mr-2"></i> Explore traditional art forms and crafts</li>
+                        <li><i class="fas fa-star text-warning mr-2"></i> Learn about architectural marvels and heritage sites</li>
+                        <li><i class="fas fa-star text-warning mr-2"></i> Understand the unique cuisine of each region</li>
+                    </ul>
+                    <a href="#/cultural-map" class="btn btn<!-- Home Page Template -->
+<div class="home-page">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content animate-on-scroll">
+                <h1 class="hero-title">Discover India's Rich Cultural Heritage</h1>
+                <p class="hero-subtitle">Explore centuries of tradition, art, music, and celebrations from the world's most diverse cultural landscape</p>
+                <div class="hero-buttons">
+                    <a href="#/gallery" class="hero-btn mr-3">Explore Gallery</a>
+                    <a href="#/cultural-map" class="hero-btn">View Cultural Map</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Highlights Section -->
+    <section class="feature-section pattern-bg">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Cultural Highlights</h2>
+            <div class="row">
+                <div class="col-md-3" ng-repeat="highlight in culturalHighlights">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="{{highlight.icon}}"></i>
+                        </div>
+                        <h3 class="feature-title">{{highlight.title}}</h3>
+                        <p class="feature-description">{{highlight.description}}</p>
+                        <a ng-href="{{highlight.link}}" class="btn btn-sm btn-outline-primary mt-3">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Traditions Section -->
+    <section class="cultural-border">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Featured Traditions</h2>
+            <div class="row">
+                <div class="col-md-4" ng-repeat="tradition in featuredTraditions">
+                    <div class="tradition-card animate-on-scroll">
+                        <div class="tradition-image">
+                            <img ng-src="{{tradition.image}}" alt="{{tradition.title}}" class="tradition-img">
+                            <div class="tradition-overlay">
+                                <h4>{{tradition.title}}</h4>
+                                <p>{{tradition.location}}</p>
+                            </div>
+                        </div>
+                        <div class="tradition-content">
+                            <h3 class="tradition-title">{{tradition.title}}</h3>
+                            <p class="tradition-region">{{tradition.location}}</p>
+                            <p class="tradition-description">{{tradition.description}}</p>
+                            <a href="#/traditions" class="read-more">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#/traditions" class="btn btn-lg btn-primary">Explore All Traditions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="events-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Upcoming Cultural Events</h2>
+            <div class="row">
+                <div class="col-md-4" ng-repeat="event in upcomingEvents">
+                    <div class="event-card animate-on-scroll">
+                        <div class="event-card-header">
+                            <img ng-src="{{event.image}}" alt="{{event.title}}" class="event-card-image">
+                            <div class="event-date">{{ event.date | date: 'MMM d, yyyy' }}</div>
+                        </div>
+                        <div class="event-card-body">
+                            <h3 class="event-title">{{event.title}}</h3>
+                            <p class="event-location"><i class="fas fa-map-marker-alt mr-2"></i>{{event.location}}</p>
+                            <p class="event-description">{{event.description}}</p>
+                            <a href="#/events" class="event-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#/events" class="btn btn-lg btn-primary">View All Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section pattern-bg">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">What People Say</h2>
+            <div class="row">
+                <div class="col-md-4" ng-repeat="testimonial in testimonials">
+                    <div class="testimonial-card animate-on-scroll">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star" ng-repeat="n in [].constructor(testimonial.rating) track by $index"></i>
+                        </div>
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p>{{testimonial.quote}}</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-image">
+                                <img ng-src="{{testimonial.image}}" alt="{{testimonial.name}}">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>{{testimonial.name}}</h4>
+                                <p>{{testimonial.title}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2 class="animate-on-scroll">Stay Connected with Indian Culture</h2>
+                        <p class="animate-on-scroll">Subscribe to our newsletter to receive updates on cultural events, festivals, and new content.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="newsletter-form animate-on-scroll">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Your email address" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Custom styles for home page -->
+<style>
+    .testimonials-section {
+        padding: 5rem 0;
+        background-color: #fff8e1;
+    }
+    
+    .testimonial-card {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
+        height: 100%;
+    }
+    
+    .testimonial-rating {
+        color: var(--gold-accent);
+        margin-bottom: 1rem;
+    }
+    
+    .testimonial-quote {
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+    
+    .quote-icon {
+        color: var(--primary-red);
+        opacity: 0.2;
+        font-size: 2rem;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+    }
+    
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+    }
+    
+    .testimonial-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 1rem;
+    }
+    
+    .testimonial-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .testimonial-info h4 {
+        margin-bottom: 0.2rem;
+        color: var(--primary-red);
+    }
+    
+    .testimonial-info p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--primary-orange);
+    }
+    
+    .newsletter-section {
+        padding: 3rem 0;
+        background-color: #fff;
+    }
+    
+    .newsletter-container {
+        background: linear-gradient(to right, var(--primary-red), var(--secondary-red));
+        color: var(--text-light);
+        padding: 3rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .newsletter-container h2 {
+        margin-bottom: 1rem;
+        color: var(--text-light);
+    }
+    
+    .newsletter-form .form-control {
+        height: 50px;
+        border-radius: 25px 0 0 25px;
+        border: none;
+        padding-left: 20px;
+    }
+    
+    .newsletter-form .btn {
+        border-radius: 0 25px 25px 0;
+        height: 50px;
+        background-color: var(--gold-accent);
+        border-color: var(--gold-accent);
+        color: var(--dark-bg);
+        font-weight: 600;
+    }
+    
+    .newsletter-form .btn:hover {
+        background-color: #c79c30;
+        border-color: #c79c30;
+    }
+</style>

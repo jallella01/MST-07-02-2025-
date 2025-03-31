@@ -1,0 +1,228 @@
+<!-- Traditions Page Template -->
+<div class="traditions-page">
+    <!-- Traditions Header Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title animate-on-scroll">Indian Traditions & Cultural Practices</h1>
+            <p class="page-description animate-on-scroll">Explore the rich tapestry of India's traditional art forms, practices, and cultural heritage developed over thousands of years.</p>
+        </div>
+    </section>
+
+    <!-- Traditions Filter Section -->
+    <section class="traditions-section">
+        <div class="container">
+            <!-- Filter Controls -->
+            <div class="filter-container animate-on-scroll">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="categoryFilter">Category:</label>
+                        <div class="filter-buttons">
+                            <button 
+                                class="filter-btn" 
+                                ng-class="{'active': activeCategory === category.id}"
+                                ng-click="setCategory(category.id)"
+                                ng-repeat="category in categories">
+                                {{category.name}}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="regionFilter">Region:</label>
+                        <div class="filter-buttons">
+                            <button 
+                                class="filter-btn" 
+                                ng-class="{'active': activeRegion === region.id}"
+                                ng-click="setRegion(region.id)"
+                                ng-repeat="region in regions">
+                                {{region.name}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Traditions List -->
+            <div class="traditions-list animate-on-scroll">
+                <div class="tradition-card" ng-repeat="tradition in filteredTraditions" ng-click="showDetail(tradition)">
+                    <div class="tradition-image">
+                        <img ng-src="{{tradition.image}}" alt="{{tradition.title}}" class="tradition-img">
+                    </div>
+                    <div class="tradition-content">
+                        <h3 class="tradition-title">{{tradition.title}}</h3>
+                        <p class="tradition-region">{{tradition.origin}}</p>
+                        <p class="tradition-description">{{tradition.description | limitTo: 300}}{{tradition.description.length > 300 ? '...' : ''}}</p>
+                        <button class="read-more">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="text-center py-5" ng-if="filteredTraditions.length === 0">
+                <i class="fas fa-theater-masks fa-3x text-muted mb-3"></i>
+                <h3>No traditions found</h3>
+                <p>Try selecting different filters or check back later for updates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Heritage Infographic -->
+    <section class="heritage-infographic pattern-bg">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">India's Cultural Heritage</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="heritage-stat animate-on-scroll">
+                        <div class="stat-value">40</div>
+                        <div class="stat-label">UNESCO World Heritage Sites</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="heritage-stat animate-on-scroll">
+                        <div class="stat-value">1600+</div>
+                        <div class="stat-label">Languages and Dialects</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="heritage-stat animate-on-scroll">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Classical Dance Forms</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="heritage-stat animate-on-scroll">
+                        <div class="stat-value">4000+</div>
+                        <div class="stat-label">Years of Continuous Civilization</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Tradition Detail Modal -->
+<div class="modal fade" id="traditionDetailModal" tabindex="-1" role="dialog" aria-labelledby="traditionDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="traditionDetailModalLabel">{{selectedTradition.title}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="closeDetail()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img ng-src="{{selectedTradition.image}}" alt="{{selectedTradition.title}}" class="img-fluid rounded">
+                        <div class="tradition-meta mt-3">
+                            <div class="meta-item">
+                                <strong>Category:</strong> {{selectedTradition.category | uppercase}}
+                            </div>
+                            <div class="meta-item">
+                                <strong>Region:</strong> {{selectedTradition.region | uppercase}} INDIA
+                            </div>
+                            <div class="meta-item">
+                                <strong>Origin:</strong> {{selectedTradition.origin}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h4>Description</h4>
+                        <p>{{selectedTradition.description}}</p>
+                        
+                        <h4 class="mt-4">Cultural Significance</h4>
+                        <p>{{selectedTradition.significance}}</p>
+                        
+                        <h4 class="mt-4">Key Elements</h4>
+                        <ul class="key-elements">
+                            <li ng-repeat="element in selectedTradition.elements">{{element}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="closeDetail()">Close</button>
+                <a href="#/gallery" class="btn btn-primary">View Related Gallery</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom styles for traditions page -->
+<style>
+    .filter-container {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 3rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .filter-container label {
+        display: block;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        color: var(--primary-red);
+    }
+    
+    .filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .tradition-meta {
+        background: #f8f9fa;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+    
+    .meta-item {
+        margin-bottom: 0.5rem;
+    }
+    
+    .key-elements {
+        padding-left: 1.5rem;
+    }
+    
+    .key-elements li {
+        margin-bottom: 0.5rem;
+        position: relative;
+    }
+    
+    .key-elements li:before {
+        content: '\f0da';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        left: -1.5rem;
+        color: var(--primary-red);
+    }
+    
+    .heritage-infographic {
+        padding: 5rem 0;
+        background-color: #fff;
+    }
+    
+    .heritage-stat {
+        text-align: center;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
+        height: 100%;
+    }
+    
+    .stat-value {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-red);
+        margin-bottom: 1rem;
+    }
+    
+    .stat-label {
+        font-size: 1.1rem;
+        color: var(--text-dark);
+    }
+</style>

@@ -1,0 +1,825 @@
+/* 
+* Indian Heritage Website - Main Stylesheet
+* Traditional Indian color palette with deep reds, yellows, oranges, and gold accents
+*/
+
+/* --------- Variables --------- */
+:root {
+    /* Traditional Indian Color Palette */
+    --primary-red: #B71C1C;      /* Deep Indian Red */
+    --secondary-red: #D32F2F;    /* Lighter Red */
+    --primary-orange: #FF8F00;   /* Deep Orange */
+    --primary-yellow: #FFC107;   /* Saffron */
+    --primary-green: #1B5E20;    /* Deep Green */
+    --primary-blue: #01579B;     /* Deep Blue */
+    --gold-accent: #D4AF37;      /* Gold */
+    --accent-teal: #00796B;      /* Peacock Teal */
+    
+    /* Neutral Colors */
+    --dark-bg: #221F1F;
+    --light-bg: #FFF8E1;
+    --text-dark: #212121;
+    --text-light: #F5F5F5;
+    
+    /* Typography */
+    --heading-font: 'Lora', serif;
+    --body-font: 'Poppins', sans-serif;
+    
+    /* Spacing */
+    --section-spacing: 5rem 0;
+    --content-spacing: 2rem 0;
+}
+
+/* --------- Global Styles --------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: var(--body-font);
+    color: var(--text-dark);
+    background-color: var(--light-bg);
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+section {
+    padding: var(--section-spacing);
+}
+
+.section-title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-red);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--gold-accent);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+
+/* --------- Navigation --------- */
+.main-header {
+    background-color: var(--primary-red);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    padding: 0.8rem 0;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand-name {
+    color: var(--light-bg);
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--light-bg);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-dark .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--gold-accent);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover::after,
+.navbar-dark .navbar-nav .active .nav-link::after {
+    width: 70%;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .active .nav-link {
+    color: var(--gold-accent);
+}
+
+/* Search Bar */
+.search-bar .form-control {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--light-bg);
+    border-radius: 20px 0 0 20px;
+}
+
+.search-bar .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-search {
+    background: var(--gold-accent);
+    color: var(--dark-bg);
+    border-radius: 0 20px 20px 0;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+    background: #c79c30;
+}
+
+/* --------- Hero Section --------- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x900/?india,culture') no-repeat center center/cover;
+    min-height: 600px;
+    color: var(--light-bg);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-bg);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-yellow);
+}
+
+.hero-btn {
+    background-color: var(--gold-accent);
+    color: var(--dark-bg);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.hero-btn:hover {
+    background-color: #c79c30;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: var(--dark-bg);
+    text-decoration: none;
+}
+
+/* --------- Feature Sections --------- */
+.feature-section {
+    background-color: #fff;
+    padding: 5rem 0;
+}
+
+.feature-card {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-red);
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-red);
+}
+
+.feature-description {
+    color: var(--text-dark);
+}
+
+/* --------- Gallery Section --------- */
+.gallery-section {
+    background-color: var(--light-bg);
+    padding: 5rem 0;
+}
+
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
+    margin: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: var(--primary-red);
+    color: var(--light-bg);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    height: 300px;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(183, 28, 28, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 1rem;
+    color: var(--light-bg);
+    text-align: center;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-description {
+    font-size: 1rem;
+}
+
+/* --------- Map Section --------- */
+.map-section {
+    padding: 5rem 0;
+    background-color: #fff;
+}
+
+.map-container {
+    height: 600px;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.india-map {
+    width: 100%;
+    height: 100%;
+}
+
+.map-info-panel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.state-info-title {
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.state-info-content {
+    color: var(--text-dark);
+}
+
+/* --------- Event Calendar --------- */
+.events-section {
+    background-color: var(--light-bg);
+    padding: 5rem 0;
+}
+
+.event-filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.event-filter-btn {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background: transparent;
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.event-filter-btn.active, .event-filter-btn:hover {
+    background-color: var(--primary-red);
+    color: var(--light-bg);
+}
+
+.event-card {
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.event-card-header {
+    position: relative;
+    height: 200px;
+}
+
+.event-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-date {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--primary-red);
+    color: var(--light-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.event-card-body {
+    padding: 1.5rem;
+}
+
+.event-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-red);
+}
+
+.event-location {
+    color: var(--primary-orange);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.event-description {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.event-link {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--primary-red);
+    color: var(--light-bg);
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.event-link:hover {
+    background: var(--secondary-red);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: var(--light-bg);
+    text-decoration: none;
+}
+
+/* --------- Traditions Section --------- */
+.traditions-section {
+    padding: 5rem 0;
+    background-color: #fff;
+}
+
+.tradition-card {
+    display: flex;
+    margin-bottom: 3rem;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.tradition-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tradition-image {
+    flex: 0 0 40%;
+    position: relative;
+    overflow: hidden;
+}
+
+.tradition-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tradition-card:hover .tradition-img {
+    transform: scale(1.1);
+}
+
+.tradition-content {
+    flex: 0 0 60%;
+    padding: 2rem;
+}
+
+.tradition-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-red);
+}
+
+.tradition-region {
+    color: var(--primary-orange);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.tradition-description {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.read-more {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--primary-red);
+    color: var(--light-bg);
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.read-more:hover {
+    background: var(--secondary-red);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: var(--light-bg);
+    text-decoration: none;
+}
+
+/* --------- Contact Section --------- */
+.contact-section {
+    background-color: var(--light-bg);
+    padding: 5rem 0;
+}
+
+.contact-info {
+    margin-bottom: 2rem;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-red);
+    color: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.contact-text {
+    flex: 1;
+}
+
+.contact-text h5 {
+    margin-bottom: 0.3rem;
+    color: var(--primary-red);
+}
+
+.contact-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.8rem;
+    width: 100%;
+}
+
+.btn-primary {
+    background: var(--primary-red);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    color: var(--light-bg);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--secondary-red);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --------- Footer --------- */
+.site-footer {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 3rem 0 1rem;
+}
+
+.site-footer h3 {
+    color: var(--gold-accent);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.site-footer h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--primary-red);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--gold-accent);
+    text-decoration: none;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--primary-red);
+    color: var(--text-light);
+    transform: translateY(-3px);
+}
+
+.copyright-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* --------- Responsive Design --------- */
+@media (max-width: 991px) {
+    .navbar-nav {
+        margin: 1rem 0;
+    }
+    
+    .search-bar {
+        margin: 1rem 0;
+        width: 100%;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .tradition-card {
+        flex-direction: column;
+    }
+    
+    .tradition-image,
+    .tradition-content {
+        flex: 0 0 100%;
+    }
+    
+    .tradition-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 767px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .contact-info {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* --------- Animations --------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Cultural patterns and motifs as background decorations */
+.pattern-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.pattern-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23B71C1C' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* Cultural borders with paisley pattern */
+.cultural-border {
+    position: relative;
+    padding: 3rem;
+    margin: 3rem 0;
+}
+
+.cultural-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 15px solid transparent;
+    border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%23B71C1C' stroke-width='2' d='M50,10 C60,10 70,20 70,30 C70,40 60,50 50,50 C40,50 30,40 30,30 C30,20 40,10 50,10 Z M50,50 C60,50 70,60 70,70 C70,80 60,90 50,90 C40,90 30,80 30,70 C30,60 40,50 50,50 Z'/%3E%3C/svg%3E") 30 stretch;
+    pointer-events: none;
+}

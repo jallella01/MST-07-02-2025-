@@ -1,0 +1,124 @@
+<!-- Gallery Page Template -->
+<div class="gallery-page">
+    <!-- Gallery Header Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title animate-on-scroll">Cultural Gallery</h1>
+            <p class="page-description animate-on-scroll">Explore the visual richness of India's cultural heritage through our curated collection of images showcasing architecture, art forms, festivals, textiles, and more.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-filter animate-on-scroll">
+                <button 
+                    class="filter-btn" 
+                    ng-class="{'active': activeCategory === category.id}"
+                    ng-click="setCategory(category.id)"
+                    ng-repeat="category in categories">
+                    {{category.name}}
+                </button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid animate-on-scroll">
+                <div class="gallery-item" ng-repeat="item in galleryItems" ng-click="showDetail(item)">
+                    <img ng-src="{{item.image}}" alt="{{item.title}}" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">{{item.title}}</h3>
+                        <p class="gallery-description">{{item.location}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="text-center py-5" ng-if="galleryItems.length === 0">
+                <i class="fas fa-image fa-3x text-muted mb-3"></i>
+                <h3>No items found</h3>
+                <p>Try selecting a different category or check back later for new additions.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Gallery Detail Modal -->
+<div class="modal fade" id="galleryDetailModal" tabindex="-1" role="dialog" aria-labelledby="galleryDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="galleryDetailModalLabel">{{selectedItem.title}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="closeDetail()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img ng-src="{{selectedItem.image}}" alt="{{selectedItem.title}}" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <h4>{{selectedItem.title}}</h4>
+                        <p class="text-muted"><i class="fas fa-map-marker-alt mr-2"></i>{{selectedItem.location}}</p>
+                        <p>{{selectedItem.description}}</p>
+                        <div class="gallery-tags">
+                            <span class="badge badge-primary">{{selectedItem.category | uppercase}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="closeDetail()">Close</button>
+                <a href="#/traditions" class="btn btn-primary">Explore Related Traditions</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom styles for gallery page -->
+<style>
+    .page-header {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/1600x400/?india,art') no-repeat center center/cover;
+        color: var(--text-light);
+        padding: 5rem 0;
+        text-align: center;
+    }
+    
+    .page-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--text-light);
+    }
+    
+    .page-description {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.2rem;
+    }
+    
+    .gallery-tags {
+        margin-top: 1rem;
+    }
+    
+    .gallery-tags .badge {
+        margin-right: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .badge-primary {
+        background-color: var(--primary-red);
+    }
+    
+    .modal-title {
+        color: var(--primary-red);
+    }
+    
+    .modal-header {
+        border-bottom: 3px solid var(--gold-accent);
+    }
+    
+    .modal-footer {
+        border-top: 1px solid #eee;
+    }
+</style>

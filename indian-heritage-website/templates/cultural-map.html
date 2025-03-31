@@ -1,0 +1,166 @@
+<!-- Cultural Map Page Template -->
+<div class="map-page">
+    <!-- Map Header Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title animate-on-scroll">Cultural Map of India</h1>
+            <p class="page-description animate-on-scroll">Explore the diverse cultural heritage of Indian states. Click on a state to discover its unique traditions, art forms, and cultural characteristics.</p>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container animate-on-scroll">
+                <div id="india-map-container" class="india-map"></div>
+                
+                <!-- Map Info Panel -->
+                <div class="map-info-panel" ng-if="selectedState">
+                    <h3 class="state-info-title">{{selectedState.name}}</h3>
+                    <p class="text-muted mb-3">{{selectedState.region | uppercase}} INDIA</p>
+                    <div class="state-info-content">
+                        <p>{{selectedState.description}}</p>
+                        <h5 class="mt-4 mb-3">Cultural Highlights:</h5>
+                        <ul class="highlight-list">
+                            <li ng-repeat="highlight in selectedState.culturalHighlights">{{highlight}}</li>
+                        </ul>
+                    </div>
+                    <div class="mt-4">
+                        <a href="#/traditions?region={{selectedState.region}}" class="btn btn-sm btn-primary">Explore Traditions</a>
+                    </div>
+                </div>
+                
+                <!-- Initial Instruction Panel -->
+                <div class="map-info-panel" ng-if="!selectedState">
+                    <h3 class="state-info-title">Interactive Map</h3>
+                    <div class="state-info-content">
+                        <p>Click on any state to explore its cultural heritage and traditions.</p>
+                        <p>India is divided into diverse cultural regions, each with unique art forms, cuisines, festivals, and traditions shaped by geography, history, and local influences.</p>
+                        <h5 class="mt-4 mb-3">Major Cultural Regions:</h5>
+                        <ul class="highlight-list">
+                            <li>North India</li>
+                            <li>South India</li>
+                            <li>East India</li>
+                            <li>West India</li>
+                            <li>Central India</li>
+                            <li>Northeast India</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Region Legend -->
+            <div class="region-legend mt-5 animate-on-scroll">
+                <h4 class="mb-4 text-center">Cultural Regions of India</h4>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <div class="legend-item north">
+                            <div class="legend-color"></div>
+                            <div class="legend-text">North India</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <div class="legend-item south">
+                            <div class="legend-color"></div>
+                            <div class="legend-text">South India</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <div class="legend-item east">
+                            <div class="legend-color"></div>
+                            <div class="legend-text">East India</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <div class="legend-item west">
+                            <div class="legend-color"></div>
+                            <div class="legend-text">West India</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <div class="legend-item central">
+                            <div class="legend-color"></div>
+                            <div class="legend-text">Central India</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <div class="legend-item northeast">
+                            <div class="legend-color"></div>
+                            <div class="legend-text">Northeast India</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Custom styles for cultural map page -->
+<style>
+    .highlight-list {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .highlight-list li {
+        padding: 0.5rem 0;
+        border-bottom: 1px dashed #e0e0e0;
+        display: flex;
+        align-items: center;
+    }
+    
+    .highlight-list li:before {
+        content: '\f0da';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        margin-right: 10px;
+        color: var(--primary-red);
+    }
+    
+    .region-legend {
+        background: #fff;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .legend-item {
+        display: flex;
+        align-items: center;
+    }
+    
+    .legend-color {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        margin-right: 1rem;
+    }
+    
+    .legend-text {
+        font-weight: 500;
+    }
+    
+    .north .legend-color {
+        background-color: #FF8F00;
+    }
+    
+    .south .legend-color {
+        background-color: #D32F2F;
+    }
+    
+    .east .legend-color {
+        background-color: #1B5E20;
+    }
+    
+    .west .legend-color {
+        background-color: #01579B;
+    }
+    
+    .central .legend-color {
+        background-color: #D4AF37;
+    }
+    
+    .northeast .legend-color {
+        background-color: #00796B;
+    }
+</style>
